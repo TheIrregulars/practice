@@ -3,5 +3,5 @@ var prototypeType = typeof Object.prototype;
 console.log(prototypeType);
 
 // now let's examine it!
-var hasOwn = 
+var hasOwn = Object.prototype.hasOwnProperty ("hasOwnProperty")
 console.log(hasOwn);
