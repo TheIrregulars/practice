@@ -1,9 +1,9 @@
 function StudentReport() {
-    this.grade1 = 4;
-    this.grade2 = 2;
-    this.grade3 = 1;
+    var grade1 = 4;
+    var grade2 = 2;
+    var grade3 = 1;
     this.getGPA = function() {
-        return (this.grade1 + this.grade2 + this.grade3) / 3;
+        return (grade1 + grade2 + grade3) / 3;
     };
 }
 
