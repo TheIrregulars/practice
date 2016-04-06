@@ -1,8 +1,15 @@
+function StaffMember(name, discountPercent) {
+	this.name = name;
+	this.discountPercent = discountPercent;
+};
+var sally = new StaffMember("Sally",5)
+var bob = new StaffMember("bob",10)
+var me = new StaffMember("Brian",20)
 var cashRegister = {
     total: 0,
-    //don't forget to add your property
+
     add: function(itemCost) {
-        this.total += itemCost; 
+        this.total += (itemCost || 0); 
         this.lastTransactionAmount = itemCost;
     },
     scan: function(item, quantity) {
@@ -23,16 +30,17 @@ var cashRegister = {
     },
      voidLastTransaction: function() {
     	this.total -= this.lastTransactionAmount; 
-    //Add the voidLastTransaction Meth here
-}
+    },
+    //Create new method applyStaffDiscount here
+    applyStaffDiscount: function(employee){
+    	this.total *= 1 - (employee.discountPercent / 100);
+    }
+
 };
 
 cashRegister.scan("eggs", 1);
 cashRegister.scan("milk", 1);
-cashRegister.scan("magazine", 1);
-cashRegister.scan("chocolate", 4);
-cashRegister.voidLastTransaction();
-cashRegister.scan("chocolate", 3)
+cashRegister.scan("magazine", 3);
+cashRegister.applyStaffDiscount(me);
 
-//Show the total bill
-console.log('Your bill is '+cashRegister.total);
+console.log('Your bill is '+cashRegister.total.toFixed(2));
