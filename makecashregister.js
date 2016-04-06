@@ -1,7 +1,9 @@
 var cashRegister = {
     total: 0,
+    //don't forget to add your property
     add: function(itemCost) {
-        this.total += itemCost 
+        this.total += itemCost; 
+        this.lastTransactionAmount = itemCost;
     },
     scan: function(item, quantity) {
         switch (item) { 
@@ -17,14 +19,20 @@ var cashRegister = {
         case "chocolate": this.add(0.45 * quantity);
             break;
         }
-    }
+        return true;
+    },
+     voidLastTransaction: function() {
+    	this.total -= this.lastTransactionAmount; 
+    //Add the voidLastTransaction Meth here
+}
 };
 
-// scan each item 4 times
-cashRegister.scan("eggs", 4)
-cashRegister.scan("milk", 4)
-cashRegister.scan("magazine", 4)
-cashRegister.scan("chocolate", 4)
+cashRegister.scan("eggs", 1);
+cashRegister.scan("milk", 1);
+cashRegister.scan("magazine", 1);
+cashRegister.scan("chocolate", 4);
+cashRegister.voidLastTransaction();
+cashRegister.scan("chocolate", 3)
 
 //Show the total bill
 console.log('Your bill is '+cashRegister.total);
