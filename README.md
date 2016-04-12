@@ -1,6 +1,6 @@
 # Practice
 
-#### New Programmer Exercises, 04.11.2016
+#### Beginning Programmer Exercises, 04.11.2016
 
 #### By Brian S. Charlton
 
